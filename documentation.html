@@ -8,11 +8,16 @@
 <p><b>POST /messages</b></p>
 <p>Routes messages optimizing for the number of network requests.</p>
 <p><b>JSON Parameters:</b></p>
-messages - Required. String.
+message - Required. String.
 <br>
 recipients - Required. List with at least one item and no more than 5000 items
 
 <p><b>Response on success:</b></p>
+<pre>
+    <code>
+curl -v -H "Content-Type: application/json" -X POST -d '{"message": "SendHub Rocks", "recipients": ["+16171230000", "+16171230001", "+16171230002", "+16171230003", "+16171230004", "+16171230005", "+16171230006", "+16171230007", "+16171230008", "+16171230009", "+16171230010", "+16171230011", "+16171230012", "+16171230013", "+16171230014", "+16171230015", "+16171230016", "+16171230017", "+16171230018", "+16171230019", "+16171230020", "+16171230021", "+16171230022", "+16171230023", "+16171230024", "+16171230025", "+16171230026", "+16171230027", "+16171230028", "+16171230029", "+16171230030", "+16171230031", "+16171230032", "+16171230033", "+16171230034", "+16171230035", "+16171230036", "+16171230037", "+16171230038", "+16171230039", "+16171230040", "+16171230041"]}'  https://damp-coast-8375.herokuapp.com/messages
+    </code>
+</pre>
 HTTP/1.1 201 CREATED
 <pre>
 <code>
@@ -93,12 +98,22 @@ HTTP/1.1 201 CREATED
 </pre>
 
 <p><b>Responses on Failure</b></p>
+<pre>
+<code>
+curl -v -H "Content-Type: application/json" -X POST -d '{"recipients": ["+19255701616"]}'  https://damp-coast-8375.herokuapp.com/messages
+</code>
+</pre>
 HTTP/1.1 400 BAD REQUEST
 <pre>
 <code>
 {
   "errorMessage": "MESSAGE_PARAMETER_REQUIRED"
 }
+</code>
+</pre>
+<pre>
+<code>
+curl -v -H "Content-Type: application/json" -X POST -d '{"message": "SendHub Rocks"}'  https://damp-coast-8375.herokuapp.com/messages
 </code>
 </pre>
 HTTP/1.1 400 BAD REQUEST
@@ -109,12 +124,22 @@ HTTP/1.1 400 BAD REQUEST
 }
 </code>
 </pre>
+<pre>
+<code>
+curl -v -H "Content-Type: application/json" -X POST -d '{"message": null, "recipients": ["+16171230000", "+16171230001", "+16171230002", "+16171230003", "+16171230004", "+16171230005", "+16171230006", "+16171230007", "+16171230008", "+16171230009", "+16171230010", "+16171230011", "+16171230012", "+16171230013", "+16171230014", "+16171230015", "+16171230016", "+16171230017", "+16171230018", "+16171230019", "+16171230020", "+16171230021", "+16171230022", "+16171230023", "+16171230024", "+16171230025", "+16171230026", "+16171230027", "+16171230028", "+16171230029", "+16171230030", "+16171230031", "+16171230032", "+16171230033", "+16171230034", "+16171230035", "+16171230036", "+16171230037", "+16171230038", "+16171230039", "+16171230040", "+16171230041", "+16171230042", "+16171230043", "+16171230044", "+16171230045", "+16171230046", "+16171230047", "+16171230048", "+16171230049", "+16171230050", "+16171230051", "+16171230052", "+16171230053", "+16171230054", "+16171230055", "+16171230056", "+16171230057", "+16171230058", "+16171230059", "+16171230060", "+16171230061", "+16171230062", "+16171230063", "+16171230064", "+16171230065", "+16171230066", "+16171230067", "+16171230068", "+16171230069", "+16171230070", "+16171230071", "+16171230072", "+16171230073", "+16171230074", "+16171230075", "+16171230076", "+16171230077", "+16171230078", "+16171230079", "+16171230080", "+16171230081", "+16171230082", "+16171230083", "+16171230084", "+16171230085", "+16171230086", "+16171230087", "+16171230088", "+16171230089", "+16171230090", "+16171230091", "+16171230092", "+16171230093", "+16171230094", "+16171230095", "+16171230096", "+16171230097", "+16171230098", "+16171230099", "+16171230100", "+16171230101", "+16171230102", "+16171230103", "+16171230104", "+16171230105", "+16171230106", "+16171230107", "+16171230108", "+16171230109", "+16171230110", "+16171230111", "+16171230112", "+16171230113", "+16171230114", "+16171230115", "+16171230116", "+16171230117", "+16171230118", "+16171230119", "+16171230120", "+16171230121", "+16171230122", "+16171230123", "+16171230124", "+16171230125", "+16171230126", "+16171230127", "+16171230128", "+16171230129", "+16171230130", "+16171230131", "+16171230132", "+16171230133", "+16171230134", "+16171230135", "+16171230136", "+16171230137"]}'  https://damp-coast-8375.herokuapp.com/messages
+</code>
+</pre>
 HTTP/1.1 400 BAD REQUEST
 <pre>
 <code>
 {
   "errorMessage": "MESSAGE_PARAMETER_CAN_NOT_BE_NONE"
 }
+</code>
+</pre>
+<pre>
+<code>
+curl -v -H "Content-Type: application/json" -X POST -d '{"message": "SendHub Rocks", "recipients": null}'  https://damp-coast-8375.herokuapp.com/messages
 </code>
 </pre>
 HTTP/1.1 400 BAD REQUEST
@@ -125,12 +150,22 @@ HTTP/1.1 400 BAD REQUEST
 }
 </code>
 </pre>
+<pre>
+<code>
+curl -v -H "Content-Type: application/json" -X POST -d '{"message": "SendHub Rocks", "recipients": []}'  https://damp-coast-8375.herokuapp.com/messages
+</code>
+</pre>
 HTTP/1.1 400 BAD REQUEST
 <pre>
 <code>
 {
   "errorMessage": "RECIPIENTS_PARAMETER_SHOULD_HAVE_AT_LEAST_ONE_ITEM"
 }
+</code>
+</pre>
+<pre>
+<code>
+curl -v -H "Content-Type: application/json" -X POST -d '{"message": "SendHub Rocks", "recipients": "test"}'  https://damp-coast-8375.herokuapp.com/messages
 </code>
 </pre>
 HTTP/1.1 400 BAD REQUEST
@@ -141,12 +176,22 @@ HTTP/1.1 400 BAD REQUEST
 }
 </code>
 </pre>
+<pre>
+<code>
+curl -v -H "Content-Type: application/json" -X POST -d '{"message": "SendHub Rocks", "recipients": ["+19255701616", "+19255701616"]}'  https://damp-coast-8375.herokuapp.com/messages
+</code>
+</pre>
 HTTP/1.1 400 BAD REQUEST
 <pre>
 <code>
 {
   "errorMessage": "RECIPIENTS_MUST_BE_UNIQUE"
 }
+</code>
+</pre>
+<pre>
+<code>
+curl -v -H "Content-Type: application/json" -X POST -d '{"message": "SendHub Rocks", "recipients": ["+1925570161", "+192557016", "+59255701616", "+19005701616", "+192557016164444443333333", "BBBBBBBBF", "925570161644444F"]}'  https://damp-coast-8375.herokuapp.com/messages
 </code>
 </pre>
 HTTP/1.1 400 BAD REQUEST
