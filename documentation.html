@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Documentation</title>
+</head>
+<body>
+<p><b>POST /messages</b></p>
+<p>Description: routes messages optimizing for the number of network requests.</p>
+<p>JSON Parameters:</p>
+- messages - Required. String
+- recipients - Required. List with at least one item and no more than 5000 items
+
+<p>Response on success:</p>
+
+HTTP/1.1 201 CREATED
+<br>
+{
+  "message": "SendHub Rocks",
+  "routes": [
+    {
+      "ip": "10.0.4.1",
+      "recipients": [
+        "+16171230000",
+        "+16171230001",
+        "+16171230002",
+        "+16171230003",
+        "+16171230004",
+        "+16171230005",
+        "+16171230006",
+        "+16171230007",
+        "+16171230008",
+        "+16171230009",
+        "+16171230010",
+        "+16171230011",
+        "+16171230012",
+        "+16171230013",
+        "+16171230014",
+        "+16171230015",
+        "+16171230016",
+        "+16171230017",
+        "+16171230018",
+        "+16171230019",
+        "+16171230020",
+        "+16171230021",
+        "+16171230022",
+        "+16171230023",
+        "+16171230024"
+      ]
+    },
+    {
+      "ip": "10.0.3.1",
+      "recipients": [
+        "+16171230025",
+        "+16171230026",
+        "+16171230027",
+        "+16171230028",
+        "+16171230029",
+        "+16171230030",
+        "+16171230031",
+        "+16171230032",
+        "+16171230033",
+        "+16171230034"
+      ]
+    },
+    {
+      "ip": "10.0.2.1",
+      "recipients": [
+        "+16171230035",
+        "+16171230036",
+        "+16171230037",
+        "+16171230038",
+        "+16171230039"
+      ]
+    },
+    {
+      "ip": "10.0.1.1",
+      "recipients": [
+        "+16171230040"
+      ]
+    },
+    {
+      "ip": "10.0.1.2",
+      "recipients": [
+        "+16171230041"
+      ]
+    }
+  ]
+
+<b>Responses on Failure</b>
+
+HTTP/1.1 400 BAD REQUEST
+<br>
+{
+  "errorMessage": "MESSAGE_PARAMETER_REQUIRED"
+}
+
+
+
+
+
+</body>
+</html>

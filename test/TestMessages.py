@@ -17,7 +17,7 @@ class TestSuite(unittest.TestCase):
 
     def test_valid_recipients(self):
         message = 'SendHub Rocks'
-        recipients = self.generate_valid_recipients(5001)
+        recipients = self.generate_valid_recipients(42)
         self.route_messages(message, recipients)
 
     def test_error_messages(self):
