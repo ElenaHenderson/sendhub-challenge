@@ -11,7 +11,7 @@
 - messages - Required. String
 - recipients - Required. List with at least one item and no more than 5000 items
 
-<p>Response on success:</p>
+<p><b>Response on success:</b></p>
 
 HTTP/1.1 201 CREATED
 <br>
@@ -87,12 +87,59 @@ HTTP/1.1 201 CREATED
     }
   ]
 
-<b>Responses on Failure</b>
+}
 
+
+
+<p><b>Responses on Failure</b></p>
+<br>
+<br>
 HTTP/1.1 400 BAD REQUEST
 <br>
 {
   "errorMessage": "MESSAGE_PARAMETER_REQUIRED"
+}
+<br>
+<br>
+HTTP/1.1 400 BAD REQUEST
+<br>
+{
+  "errorMessage": "RECIPIENTS_PARAMETER_REQUIRED"
+}
+<br>
+<br>
+HTTP/1.1 400 BAD REQUEST
+<br>
+{
+  "errorMessage": "MESSAGE_PARAMETER_CAN_NOT_BE_NONE"
+}
+<br>
+<br>
+HTTP/1.1 400 BAD REQUEST
+<br>
+{
+  "errorMessage": "RECIPIENTS_PARAMETER_CAN_NOT_BE_NONE"
+}
+<br>
+<br>
+HTTP/1.1 400 BAD REQUEST
+<br>
+{
+  "errorMessage": "RECIPIENTS_PARAMETER_SHOULD_HAVE_AT_LEAST_ONE_ITEM"
+}
+<br>
+<br>
+HTTP/1.1 400 BAD REQUEST
+<br>
+{
+  "errorMessage": "RECIPIENTS_PARAMETER_SHOULD_BE_LIST"
+}
+<br>
+<br>
+HTTP/1.1 400 BAD REQUEST
+<br>
+{
+  "errorMessage": "RECIPIENTS_MUST_BE_UNIQUE"
 }
 
 
