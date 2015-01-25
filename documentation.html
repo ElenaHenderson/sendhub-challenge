@@ -6,15 +6,16 @@
 </head>
 <body>
 <p><b>POST /messages</b></p>
-<p>Description: routes messages optimizing for the number of network requests.</p>
-<p>JSON Parameters:</p>
-- messages - Required. String
-- recipients - Required. List with at least one item and no more than 5000 items
+<p>Routes messages optimizing for the number of network requests.</p>
+<p><b>JSON Parameters:</b></p>
+messages - Required. String.
+<br>
+recipients - Required. List with at least one item and no more than 5000 items
 
 <p><b>Response on success:</b></p>
-
 HTTP/1.1 201 CREATED
-<br>
+<pre>
+<code>
 {
   "message": "SendHub Rocks",
   "routes": [
@@ -88,63 +89,97 @@ HTTP/1.1 201 CREATED
   ]
 
 }
-
-
+</code>
+</pre>
 
 <p><b>Responses on Failure</b></p>
-<br>
-<br>
 HTTP/1.1 400 BAD REQUEST
-<br>
+<pre>
+<code>
 {
   "errorMessage": "MESSAGE_PARAMETER_REQUIRED"
 }
-<br>
-<br>
+</code>
+</pre>
 HTTP/1.1 400 BAD REQUEST
-<br>
+<pre>
+<code>
 {
   "errorMessage": "RECIPIENTS_PARAMETER_REQUIRED"
 }
-<br>
-<br>
+</code>
+</pre>
 HTTP/1.1 400 BAD REQUEST
-<br>
+<pre>
+<code>
 {
   "errorMessage": "MESSAGE_PARAMETER_CAN_NOT_BE_NONE"
 }
-<br>
-<br>
+</code>
+</pre>
 HTTP/1.1 400 BAD REQUEST
-<br>
+<pre>
+<code>
 {
   "errorMessage": "RECIPIENTS_PARAMETER_CAN_NOT_BE_NONE"
 }
-<br>
-<br>
+</code>
+</pre>
 HTTP/1.1 400 BAD REQUEST
-<br>
+<pre>
+<code>
 {
   "errorMessage": "RECIPIENTS_PARAMETER_SHOULD_HAVE_AT_LEAST_ONE_ITEM"
 }
-<br>
-<br>
+</code>
+</pre>
 HTTP/1.1 400 BAD REQUEST
-<br>
+<pre>
+<code>
 {
   "errorMessage": "RECIPIENTS_PARAMETER_SHOULD_BE_LIST"
 }
-<br>
-<br>
+</code>
+</pre>
 HTTP/1.1 400 BAD REQUEST
-<br>
+<pre>
+<code>
 {
   "errorMessage": "RECIPIENTS_MUST_BE_UNIQUE"
 }
+</code>
+</pre>
+HTTP/1.1 400 BAD REQUEST
+<pre>
+<code>{
+  "errorMessage": {
+    "MISSING_OR_INVALID_DEFAULT_REGION": [
+      "925570161644444F"
+    ],
+    "NOT_US_PHONE_NUMBER": [
+      "+59255701616"
+    ],
+    "NOT_VALID_US_PHONE_NUMBER": [
+      "+1925570161",
+      "+192557016"
+    ],
+    "THE_STRING_SUPPLIED_DID_NOT_SEEM_TO_BE_A_PHONE_NUMBER": [
+      "BBBBBBBBF"
+    ],
+    "THE_STRING_SUPPLIED_IS_TOO_LONG_TO_BE_A_PHONE_NUMBER": [
+      "+192557016164444443333333"
+    ]
+  }
+</code>
+</pre>
 
-
-
-
-
+HTTP/1.1 400 BAD REQUEST
+<pre>
+<code>
+{
+  "errorMessage": "5000_RECIPIENTS_LIMIT_IS_EXCEEDED"
+}
+</code>
+</pre>
 </body>
 </html>

@@ -36,8 +36,8 @@ class TestSuite(unittest.TestCase):
         self.assertEquals(json.loads(self.route_messages(VALID_MESSAGE, [VALID_RECIPIENT, VALID_RECIPIENT]).content)['errorMessage'],
                           'RECIPIENTS_MUST_BE_UNIQUE')
 
-        # self.assertEquals(json.loads(self.route_messages(VALID_MESSAGE, self.generate_valid_recipients(5001)).content)['errorMessage'],
-        #                   '5000_RECIPIENTS_LIMIT_IS_EXCEEDED')
+        self.assertEquals(json.loads(self.route_messages(VALID_MESSAGE, self.generate_valid_recipients(5001)).content)['errorMessage'],
+                          '5000_RECIPIENTS_LIMIT_IS_EXCEEDED')
 
         self.route_messages(VALID_MESSAGE, [INVALID_RECIPIENT_DIGITS_1,
                                             INVALID_RECIPIENT_DIGITS_2,
